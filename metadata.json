@@ -1,0 +1,5 @@
+{
+  "name": "MTYA Movie Recap Generator",
+  "description": "An application that takes a movie transcript, converts it into an engaging Burmese movie recap script using Gemini, and then generates audio from that script.",
+  "requestFramePermissions": []
+}
