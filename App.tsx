@@ -29,6 +29,7 @@ const App: React.FC = () => {
   const [copied, setCopied] = useState<{ [key: string]: boolean }>({});
   const [history, setHistory] = useState<HistoryItem[]>([]);
 
+
   // Load history from localStorage on initial render
   useEffect(() => {
     try {
@@ -162,8 +163,9 @@ const App: React.FC = () => {
             <h2 className="text-2xl font-bold mb-4 flex items-center"><FilmIcon className="w-6 h-6 mr-2" /> Input</h2>
             
             <div className="space-y-6">
+              
               <div>
-                <label htmlFor="media-upload" className="block text-sm font-medium text-gray-300 mb-2">Transcribe from Media File (Optional)</label>
+                <label htmlFor="media-upload" className="block text-sm font-medium text-gray-300 mb-2">Transcribe from Media File</label>
                 <div className="mt-2 flex items-center space-x-4">
                   <div className="flex-grow">
                     <label htmlFor="file-upload" className="relative cursor-pointer bg-gray-800 rounded-md font-medium text-purple-400 hover:text-purple-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-900 focus-within:ring-purple-500 px-4 py-2 w-full text-center inline-block">
@@ -206,7 +208,10 @@ const App: React.FC = () => {
                   id="transcript"
                   rows={8}
                   className="w-full bg-gray-800/50 rounded-lg p-4 border border-gray-700 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 placeholder-gray-500"
-                  placeholder={isTranscribing ? "Transcription in progress..." : "Paste the transcript here, or generate one from a file above."}
+                  placeholder={
+                    isTranscribing ? "Transcription in progress..." : 
+                    "Paste the transcript here, or generate one from a source above."
+                  }
                   value={transcript}
                   onChange={(e) => setTranscript(e.target.value)}
                   disabled={isLoading || isTranscribing}
